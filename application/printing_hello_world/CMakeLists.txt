@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 project(
-    CPP_PROJECT_TEMPLATE
+    PRINTING_HELLO_WORLD
     LANGUAGES CXX
     VERSION 1.0.0
     DESCRIPTION "C++ Project Template"
@@ -94,13 +94,14 @@ message(STATUS "")
 
 add_subdirectory(${${PROJECT_NAME}_THIRDPARTY_PATH})
 add_subdirectory(${${PROJECT_NAME}_MODULE_PATH})
-add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
+# add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
 
 # base 구조
 set(${PROJECT_NAME}_SOURCE_FILES
     src/main.cpp
     #Add source files here
 )
+
 # ! If you want to make a library, use the following code
 # add_library(${PROJECT_NAME} STATIC
 # ${${PROJECT_NAME}_SOURCE_FILES}
@@ -112,12 +113,14 @@ ${${PROJECT_NAME}_SOURCE_FILES}
 )
 
 # ! If you want to add include directories and link libraries, use the following code
-# target_include_directories(${PROJECT_NAME} PUBLIC
-# ${${PROJECT_NAME}_INCLUDE_PATH}
+target_include_directories(${PROJECT_NAME} PUBLIC
+${${PROJECT_NAME}_INCLUDE_PATH}
+)
 
 #Add include path here
-# target_link_libraries(${PROJECT_NAME} PRIVATE
-# )
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    UTILS
+)
 
 #Add libraries here
 # add_dependencies(${PROJECT_NAME}
