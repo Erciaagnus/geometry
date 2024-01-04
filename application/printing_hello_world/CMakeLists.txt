@@ -7,10 +7,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 project(
-    CPP_PROJECT_TEMPLATE
+    PRINTING_HELLO_WORLD
     LANGUAGES CXX
     VERSION 1.0.0
-    DESCRIPTION "C++ Project Template"
     HOMEPAGE_URL "https://github.com/Inah-choi/cpp_project_template.git"
 )
 message(STATUS)
@@ -87,7 +86,7 @@ message(STATUS "${PROJECT_NAME}_APPLICATION_PATH: ${${PROJECT_NAME}_APPLICATION_
 message(STATUS "${PROJECT_NAME}_RESOURCE_PATH: ${${PROJECT_NAME}_RESOURCE_PATH}")
 message(STATUS "")
 
-add_subdirectory(${${PROJECT_NAME}_THIRDPARTY_PATH})
+# add_subdirectory(${${PROJECT_NAME}_THIRDPARTY_PATH})
 add_subdirectory(${${PROJECT_NAME}_MODULE_PATH})
 # add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
 
@@ -95,8 +94,8 @@ add_subdirectory(${${PROJECT_NAME}_MODULE_PATH})
 
 # base 구조
 # base / application/base module/base thirdparty/base
-# ! Add source files here
 
+# ! Add source files here
 set(${PROJECT_NAME}_SOURCE_FILES
     src/main.cpp
 )
@@ -114,19 +113,22 @@ ${${PROJECT_NAME}_SOURCE_FILES}
 )
 
 # ! If you want to add include directories and link libraries, use the following code
-# target_include_directories(${PROJECT_NAME} PUBLIC
-# ${${PROJECT_NAME}_INCLUDE_PATH}
+target_include_directories(${PROJECT_NAME} PUBLIC
+${${PROJECT_NAME}_INCLUDE_PATH}
+    UTILS # UTILS를 PUBLIC으로 추가하여, UTILS 라이브러리의 헤더 파일들을 ${PROJECT_NAME} 타겟에서 사용 가능하도록 함
+)
+
 
 # ! Add include path here
-# target_link_libraries(${PROJECT_NAME} PRIVATE
-# )
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    UTILS #UTILS 라이브러리를 PRIVATE으로 추가하여, UTILS 라이브러리의 함수 및 기능들을 ${PROJECT_NAME} 타겟에서 사용 가능하도록 함.
+    )
 
 # ! Add libraries here
-# add_dependencies(${PROJECT_NAME})
-
-# 빌드 프로세스에서 특정 대상을 빌드하기 전에 다른 대상이 먼저 빌드되어야 함
 # ! Add dependencies here
-# )
+add_dependencies(${PROJECT_NAME}
+    UTILS #${PROJECT_NAME}이 빌드되기 전에 UTILS가 먼저 빌드되어야 함.
+    )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
 ${CPP_COMFILE_FLAGS}
