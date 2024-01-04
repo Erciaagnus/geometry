@@ -12,7 +12,7 @@ file(GLOB ELEMENTS "*")
 
 foreach(ELEMENT ${ELEMENTS})
     if(IS_DIRECTORY ${ELEMENT} AND EXISTS ${ELEMENT}/CMakeLists.txt)
-    build_submodule(${ELEMENT})
+        build_submodule(${ELEMENT})
     endif()
 endforeach()
 
