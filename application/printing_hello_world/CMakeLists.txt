@@ -115,13 +115,13 @@ ${${PROJECT_NAME}_SOURCE_FILES}
 # ! If you want to add include directories and link libraries, use the following code
 target_include_directories(${PROJECT_NAME} PUBLIC
 ${${PROJECT_NAME}_INCLUDE_PATH}
-    UTILS # UTILS를 PUBLIC으로 추가하여, UTILS 라이브러리의 헤더 파일들을 ${PROJECT_NAME} 타겟에서 사용 가능하도록 함
+# UTILS를 PUBLIC으로 추가하여, UTILS 라이브러리의 헤더 파일들을 ${PROJECT_NAME} 타겟에서 사용 가능하도록 함
 )
 
 
 # ! Add include path here
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    UTILS #UTILS 라이브러리를 PRIVATE으로 추가하여, UTILS 라이브러리의 함수 및 기능들을 ${PROJECT_NAME} 타겟에서 사용 가능하도록 함.
+    UTILS #라이브러리를 PRIVATE으로 추가하여, UTILS 라이브러리의 함수 및 기능들을 ${PROJECT_NAME} 타겟에서 사용 가능하도록 함.
     )
 
 # ! Add libraries here

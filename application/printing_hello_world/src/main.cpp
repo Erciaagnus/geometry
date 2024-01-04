@@ -4,6 +4,7 @@
 #include "utils/utils.hpp"
 
 int32_t main() {
-    Print(message: "Hello, world!");
+    std::string message = "Hello, world!";
+    Print(message);
     return 0;
 }

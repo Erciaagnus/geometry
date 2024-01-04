@@ -89,7 +89,7 @@ message(STATUS "")
 
 add_subdirectory(${${PROJECT_NAME}_THIRDPARTY_PATH})
 add_subdirectory(${${PROJECT_NAME}_MODULE_PATH})
-# add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
+add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
 
 # add_subdirectory(${${PROJECT_NAME}_TEST_PATH})
 
