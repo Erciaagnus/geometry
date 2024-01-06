@@ -7,11 +7,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 project(
-    CPP_PROJECT_TEMPLATE
+    GEOMETRY
     LANGUAGES CXX
     VERSION 1.0.0
     DESCRIPTION "C++ Project Template"
-    HOMEPAGE_URL "https://github.com/Inah-choi/cpp_project_template.git"
+    HOMEPAGE_URL "https://github.com/Erciaagnus/geometry.git"
 )
 message(STATUS)
 message(STATUS "Started all process in ${PROJECT_NAME} CMakeLists.txt.")
@@ -98,40 +98,39 @@ add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
 # ! Add source files here
 
 set(${PROJECT_NAME}_SOURCE_FILES
-    src/main.cpp
+    src/point2d.cpp
 )
 
 # ! If you want to make a library, use the following code
-# 정적 또는 공유 라이브러리(target)를 만들 때 사용
-# add_library(${PROJECT_NAME} STATIC
-# ${${PROJECT_NAME}_SOURCE_FILES}
-# )
-
-# ! If you want to make an executable, use the following code
-# 실행 파일(target)을 만들 때 사용
-add_executable(${PROJECT_NAME}
+# 정적 또는 동적 라이브러리 사용 시 작성
+add_library(${PROJECT_NAME} STATIC
 ${${PROJECT_NAME}_SOURCE_FILES}
 )
 
-# ! If you want to add include directories and link libraries, use the following code
-# target_include_directories(${PROJECT_NAME} PUBLIC
-# ${${PROJECT_NAME}_INCLUDE_PATH}
+# ! If you want to make an executable, use the following code
+# 실행 파일(target)을 만들 때 사용
+#add_executable(${PROJECT_NAME}
+#${${PROJECT_NAME}_SOURCE_FILES}
+#)
 
+# ! If you want to add include directories and link libraries, use the following code
+target_include_directories(${PROJECT_NAME} PUBLIC
+${${PROJECT_NAME}_INCLUDE_PATH}
+)
 # ! Add include path here
 # target_link_libraries(${PROJECT_NAME} PRIVATE
 # )
 
 # ! Add libraries here
 # add_dependencies(${PROJECT_NAME})
-
+include(cmake/create_documents.cmake)
 # 빌드 프로세스에서 특정 대상을 빌드하기 전에 다른 대상이 먼저 빌드되어야 함
 # ! Add dependencies here
 # )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
-${CPP_COMFILE_FLAGS}
+ ${CPP_COMFILE_FLAGS}
 )
-# include(cmake/create_documents.cmake)
 
 message(STATUS)
 message(STATUS "Finished all process in ${PROJECT_NAME} CMakeLists.txt.")

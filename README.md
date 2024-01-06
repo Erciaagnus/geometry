@@ -1,3 +1,3 @@
-# cpp_project_template
+# GEOMETRY
 
-The template for cpp projects
+The library for cpp geometry
