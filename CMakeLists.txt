@@ -118,12 +118,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 ${${PROJECT_NAME}_INCLUDE_PATH}
 )
 # ! Add include path here
+include(cmake/create_documents.cmake)
 # target_link_libraries(${PROJECT_NAME} PRIVATE
 # )
 
 # ! Add libraries here
 # add_dependencies(${PROJECT_NAME})
-include(cmake/create_documents.cmake)
 # 빌드 프로세스에서 특정 대상을 빌드하기 전에 다른 대상이 먼저 빌드되어야 함
 # ! Add dependencies here
 # )
