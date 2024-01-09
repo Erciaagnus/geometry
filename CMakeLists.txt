@@ -99,6 +99,8 @@ add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
 
 set(${PROJECT_NAME}_SOURCE_FILES
     src/point2d.cpp
+    src/distance.cpp
+    src/main.cpp
 )
 
 # ! If you want to make a library, use the following code
