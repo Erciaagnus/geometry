@@ -75,7 +75,7 @@ public:
    * @return double Euclidean distance between this point and target point
    */
 
-  auto CalculateDistance(const Point2D &target) const -> double;
+  [[nodiscard]] auto CalculateDistance(const Point2D &target) const -> double;
   /**
    * @brief Calculate distance between lhs point and rhs point
    * @param lhs Left hand side Point2D object
@@ -135,8 +135,8 @@ public:
    * @param other The Point2D object to be added.
    * @return A reference to the modified Point2D object.
    */
-
-  auto operator+=(const Point2D &other) const -> Point2D;
+  // Since += -= operators change state of object, we cannot use 'const'
+  auto operator+=(const Point2D &other) -> void;
 
   /**
    * @brief Overloaded subtraction assignment operator for Point2D.
@@ -148,7 +148,13 @@ public:
    * @return A reference to the modified Point2D object.
    */
 
-  auto operator-=(const Point2D &other) const -> Point2D;
+  auto operator-=(const Point2D &other) -> void;
+  /**
+   * @brief Multiply x,y values with scalar
+   * @param other
+   * @return Point2D class = this * scalar
+   */
+  auto operator*(double scalar) const -> Point2D;
   /**
    * @brief Overloaded equality operator for Point2D.
    *
@@ -157,7 +163,15 @@ public:
    * @param other The Point2D object to be compared for equality.
    * @return True if the objects are equal, false otherwise.
    */
-  auto operator==(const Point2D &other) const -> Point2D;
+  auto operator/(double scalar) const -> Point2D;
+
+  /**
+   * @brief Return a boolean indicating whether two classes are equal.
+   * @param other
+   * @return true if this == other
+   * @return false if this != other
+   */
+  auto operator==(const Point2D &other) const -> bool;
   /**
    * @brief Overloaded inequality operator for Point2D.
    *
@@ -166,7 +180,7 @@ public:
    * @param other The Point2D object to be compared for inequality.
    * @return True if the objects are not equal, false otherwise.
    */
-  auto operator!=(const Point2D &other) const -> Point2D;
+  auto operator!=(const Point2D &other) const -> bool;
 
 protected:
 private:

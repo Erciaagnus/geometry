@@ -99,6 +99,8 @@ add_subdirectory(${${PROJECT_NAME}_APPLICATION_PATH})
 
 set(${PROJECT_NAME}_SOURCE_FILES
     src/point2d.cpp
+    src/distance.cpp
+    src/main.cpp
 )
 
 # ! If you want to make a library, use the following code
@@ -132,6 +134,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
  ${CPP_COMFILE_FLAGS}
 )
 
+add_subdirectory(${${PROJECT_NAME}_TEST_PATH})
 message(STATUS)
 message(STATUS "Finished all process in ${PROJECT_NAME} CMakeLists.txt.")
 message(STATUS)
