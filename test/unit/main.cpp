@@ -4,7 +4,7 @@
 #include <cstdint>
 
 #include "gtest/gtest.h"
-#include "math/utils.hpp"
+#include "geometry/point2d.hpp"
 
 auto main(int32_t argc, char **argv) -> int32_t {
   ::testing::InitGoogleTest(&argc, argv);
