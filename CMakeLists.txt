@@ -132,6 +132,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
  ${CPP_COMFILE_FLAGS}
 )
 
+add_subdirectory(${${PROJECT_NAME}_TEST_PATH})
 message(STATUS)
 message(STATUS "Finished all process in ${PROJECT_NAME} CMakeLists.txt.")
 message(STATUS)
